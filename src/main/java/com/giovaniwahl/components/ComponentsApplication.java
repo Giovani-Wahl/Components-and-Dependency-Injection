@@ -2,7 +2,6 @@ package com.giovaniwahl.components;
 
 import com.giovaniwahl.components.entities.Order;
 import com.giovaniwahl.components.services.OrderService;
-import com.giovaniwahl.components.services.ShippingService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,11 +13,9 @@ import java.util.List;
 public class ComponentsApplication implements CommandLineRunner {
 
 	private final OrderService orderService;
-	private final ShippingService shippingService;
 
-	public ComponentsApplication(OrderService orderService, ShippingService shippingService) {
+	public ComponentsApplication(OrderService orderService) {
 		this.orderService = orderService;
-		this.shippingService = shippingService;
 	}
 
 	public static void main(String[] args) {
@@ -38,9 +35,9 @@ public class ComponentsApplication implements CommandLineRunner {
 		orders.add(order3);
 
 		for (int i =0; i < orders.toArray().length; i++){
-			double totalPed = shippingService.shipment(orders.get(i)) + orderService.total(orders.get(i));
-			System.out.println(" \nPedido código "+ orders.get(i).getCode());
-			System.out.println(String.format("Valor total: R$ %2.2f", totalPed));
+			double totalPed = orderService.total(orders.get(i));
+			System.out.println("\nPedido código "+ orders.get(i).getCode());
+			System.out.println(String.format("valor total: R$ %2.2f", totalPed));
 		}
 	}
 }
