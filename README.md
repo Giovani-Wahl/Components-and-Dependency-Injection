@@ -10,13 +10,13 @@ Componentes e injeção de dependência
 Clonar o projeto
 
 ```bash
-  git clone https://github.com/Giovani-Wahl/Rest-Template.git
+  git clone https://github.com/Giovani-Wahl/Components-and-Dependency-Injection.git
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd Rest-Template
+  cd components
 ```
 Abra o pŕojeto em seu IDE e execute
 ## 
